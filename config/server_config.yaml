@@ -1,0 +1,68 @@
+server:
+  host: "0.0.0.0"
+  port: 8000
+  debug: false
+  workers: 1
+  timeout: 180
+  api_prefix: "/api/v1"
+
+models:
+  # Default directory to store the model files
+  cache_dir: "./model_cache"
+  
+  # Maximum number of models to keep loaded in memory
+  max_loaded_models: 2
+  
+  # Default model to load on startup (if any)
+  default_model: "phi-2"
+  
+  # Default quantization method (none, 4-bit, 8-bit)
+  default_quantization: "4-bit"
+  
+  # Whether to load models on GPU by default
+  use_gpu: true
+  
+  # Automatically fall back to CPU if GPU is not available
+  fallback_to_cpu: true
+
+inference:
+  # Default parameters for text generation
+  max_length: 2048
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 40
+  repetition_penalty: 1.1
+  
+  # Maximum batch size for concurrent requests
+  max_batch_size: 4
+  
+  # Cache generated responses (useful for idempotent requests)
+  cache_responses: true
+  
+  # Maximum time in seconds for inference before timeout
+  max_inference_time: 60
+  
+security:
+  # Enable token-based authentication
+  enable_auth: false
+  
+  # Token expiration time in seconds (default: 24 hours)
+  token_expiration: 86400
+  
+  # Rate limiting (requests per minute per IP)
+  rate_limit: 60
+  
+  # CORS settings
+  allowed_origins: ["*"]
+  
+logging:
+  level: "INFO"
+  file: "logs/server.log"
+  max_size: 10 # MB
+  backup_count: 5
+  
+  # Whether to log request and response payloads
+  log_payloads: false
+  
+  # Whether to log model loading and unloading
+  log_model_events: true
