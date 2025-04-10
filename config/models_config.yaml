@@ -1,0 +1,120 @@
+models:
+  # Base language models
+  - id: "mistral-7b"
+    name: "Mistral 7B Instruct v0.2"
+    huggingface_repo: "mistralai/Mistral-7B-Instruct-v0.2"
+    type: "causal_lm"
+    family: "mistral"
+    context_length: 8192
+    ram_required: 16 # GB
+    gpu_required: 8 # GB
+    quantization:
+      - "none"
+      - "4-bit"
+      - "8-bit"
+    tags:
+      - "base"
+      - "instruct"
+    description: "Mistral 7B Instruct is a general purpose model fine-tuned for instruction following tasks."
+    
+  - id: "llama3-8b"
+    name: "Llama 3 8B Instruct"
+    huggingface_repo: "meta-llama/Meta-Llama-3-8B-Instruct"
+    type: "causal_lm"
+    family: "llama"
+    context_length: 8192
+    ram_required: 20
+    gpu_required: 10
+    quantization:
+      - "none"
+      - "4-bit"
+      - "8-bit"
+    tags:
+      - "base"
+      - "instruct"
+    description: "Meta-Llama 3 8B Instruct is a 8B parameter model fine-tuned for instruction following tasks."
+  
+  # Code models
+  - id: "codellama-7b"
+    name: "CodeLlama 7B Instruct"
+    huggingface_repo: "codellama/CodeLlama-7b-Instruct-hf"
+    type: "causal_lm"
+    family: "llama"
+    context_length: 16384
+    ram_required: 16
+    gpu_required: 8
+    quantization:
+      - "none"
+      - "4-bit"
+      - "8-bit"
+    tags:
+      - "code"
+      - "instruct"
+    description: "CodeLlama 7B is a model fine-tuned for code generation and instruction following."
+  
+  # Small models
+  - id: "phi-2"
+    name: "Phi-2"
+    huggingface_repo: "microsoft/phi-2"
+    type: "causal_lm"
+    family: "phi"
+    context_length: 2048
+    ram_required: 6
+    gpu_required: 3
+    quantization:
+      - "none"
+      - "4-bit"
+      - "8-bit"
+    tags:
+      - "small"
+      - "efficient"
+    description: "Phi-2 is a small language model trained for various language tasks."
+
+  # Embeddings models
+  - id: "bge-small-en"
+    name: "BGE Small EN"
+    huggingface_repo: "BAAI/bge-small-en-v1.5"
+    type: "embedding"
+    family: "bge"
+    context_length: 512
+    ram_required: 2
+    gpu_required: 1
+    quantization:
+      - "none"
+    tags:
+      - "embedding"
+      - "english"
+    description: "BGE Small is a lightweight embedding model for English text."
+
+  # Specialized models
+  - id: "falcon-7b-instruct"
+    name: "Falcon 7B Instruct"
+    huggingface_repo: "tiiuae/falcon-7b-instruct"
+    type: "causal_lm"
+    family: "falcon"
+    context_length: 2048
+    ram_required: 16
+    gpu_required: 8
+    quantization:
+      - "none"
+      - "4-bit"
+      - "8-bit"
+    tags:
+      - "instruct"
+    description: "Falcon-7B-Instruct is a 7B parameters causal decoder-only model fine-tuned for instruction following."
+
+  - id: "gemma-7b"
+    name: "Gemma 7B Instruct"
+    huggingface_repo: "google/gemma-7b-it"
+    type: "causal_lm"
+    family: "gemma"
+    context_length: 8192
+    ram_required: 16
+    gpu_required: 8
+    quantization:
+      - "none"
+      - "4-bit"
+      - "8-bit"
+    tags:
+      - "instruct"
+    description: "Gemma 7B is a lightweight, text-to-text model fine-tuned for instruction following."
